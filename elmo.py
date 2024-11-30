@@ -38,6 +38,6 @@ def elmo(qc,qreg1,qreg2,symmetrize=0) :
   # Take symmetric and antisymmetric components
   qc.h(symmetrize)
 
-  qc.measure_all()
+  #qc.measure_all()
   return qc
 
