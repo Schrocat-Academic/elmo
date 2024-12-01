@@ -19,12 +19,15 @@ def test_elmo(nq_qreg) :
   creg = [creg0] + creg1 + creg2
   qc = elmo.elmo(QuantumCircuit(qreg[-1]+1),qreg1,qreg2,0)
   qc.measure_all(qreg,creg)
-  qc.draw()
+  print(qc.draw())
   #
+  #session = QuantumInstance()
   session = Sampler()
   #session = StatevectorSampler()
-  job = session.run([(qc)])
-  print(job.result())
+  job = session.run(qc)
+  #job = session.execute(qc)
+  #print(job.result().result.metadata[0])
+  print(job.result().quasi_dists[0])
 
 
 ################################################
