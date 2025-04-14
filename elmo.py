@@ -11,13 +11,13 @@
 # A Hadamard on the controlling |+> qubit then yields the final state
 # |0>|unflagged>|flagged> + |1>|flagged>|unflagged>
 
-def elmo(qc,qreg1,qreg2,symmetrize=0) :
-  qc.h(symmetrize)
-  for qubit in qreg2 :
-    qc.x(qubit)
-  qc.h(symmetrize)
-  qc.mcx(qreg2,symmetrize)
-  qc.h(symmetrize)
+def elmo(qc,qval,qqft) :
+  #for qubit in qreg2 :
+    #qc.x(qubit)
+  qc.h(qval[0])
+  if len(qval) > 2 :
+    qc.h(qval[-1]
+  
   for qubit in qreg2 :
     qc.x(qubit)
   # Initialise qregs
